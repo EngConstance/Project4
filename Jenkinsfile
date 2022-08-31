@@ -9,7 +9,8 @@ pipeline {
 	    	}
 	    	stage('2-constance.sh'){
 			steps{
-	    		sh	/var/lib/jenkins/workspace/new-pipeline/
+	    		sh	/var/lib/jenkins/hat/Project4
+
 	    	   }
 	    
 	    	}
