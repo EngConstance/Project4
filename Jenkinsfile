@@ -2,27 +2,17 @@
 pipeline {
 	 agent any
 	    stages{
-	    	stage('1-make a left'){
+	    	stage('1-clone'){
 	    		steps{
-	    		sh	'echo "walk.."'
+	    		checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '01b44015-5552-4132-bee4-166dad8754a6', url: 'https://github.com/EngConstance/Project4.git']]])
 	    		}
 	    	}
-	    	stage('2-make a right'){
-	    		steps{
-	    		sh	'echo "walk.."'
-	    		}
-	    	}
-	    	stage('3-make another left'){
-	    	    steps{
-	    		sh    'echo "walk.."'
+	    	stage('2-constance.sh'){
+			steps{
+	    		sh	/var/lib/jenkins/workspace/new-pipeline/constance.sh
 	    	   }
 	    
 	    	}
-	    	stage('4-cross the street'){
-			    steps{
-				sh    'echo "walk.."'
-	            }
-		
-			}
+	    
 		}
 	}
